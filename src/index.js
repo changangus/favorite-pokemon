@@ -1,12 +1,17 @@
 import { App } from './components'
 import { render } from 'uhtml';
+import { getMonsters } from './data';
 
 const initialState = {
   monsters: [
-    { name: 'bulbasaur', liked: false },
-    { name: 'ivysaur', liked: true },
-    { name: 'venusaur', liked: false },
   ]
 }
 
-render(document.getElementById('app'), App(initialState))
+async function main (initialState) {
+  const updatedState = await getMonsters(initialState);
+  render(document.getElementById('app'), App(updatedState));
+  return updatedState
+}
+
+main(initialState)
+
