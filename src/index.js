@@ -7,11 +7,15 @@ const initialState = {
   ]
 }
 
-async function main (initialState) {
-  const updatedState = await getMonsters(initialState);
-  render(document.getElementById('app'), App(updatedState));
-  return updatedState
+async function main () {
+  try {
+    const updatedState = await getMonsters();
+    render(document.getElementById('app'), App(updatedState));
+  } catch (error) {
+    console.log(error)
+  }
+
 }
 
-main(initialState)
+main();
 

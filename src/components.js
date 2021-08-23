@@ -1,7 +1,7 @@
 import { html } from 'uhtml';
 
-const MonsterHeart = (liked) => {
-  return liked ? 
+const MonsterHeart = (monster) => {
+  return monster.liked ? 
   html`
   <button class="monster__liked">
     <svg xmlns="http:www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -37,14 +37,14 @@ const Monster = (monster) => {
 
   <div class="monster__index">#${monster.index}</div>
 
-  ${MonsterHeart(monster.liked)}
+  ${MonsterHeart(monster)}
 </li>
 `}
 
 const Monsters = ({ monsters }) => {
   return html`
 <ul class="monsters">
- ${monsters.map(monster => Monster(monster))}
+ ${monsters.map(Monster)}
 </ul>
 `;
 }
