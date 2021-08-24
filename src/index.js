@@ -1,21 +1,13 @@
 import { App } from './components'
 import { render } from 'uhtml';
-import { getMonsters } from './data';
-
-const initialState = {
-  monsters: [
-  ]
-}
+import { store } from './redux/store';
+import { dispatchGetMonsters } from './redux/pokemonActions';
 
 async function main () {
-  try {
-    const updatedState = await getMonsters();
-    render(document.getElementById('app'), App(updatedState));
-  } catch (error) {
-    console.log(error)
-  }
-
+  await dispatchGetMonsters('https://pokeapi.co/api/v2/pokemon?limit=9');
+  render(document.getElementById('app'), App(store.getState()));  
 }
 
-main();
-
+main().catch((error) => {
+  console.log(error)
+});
