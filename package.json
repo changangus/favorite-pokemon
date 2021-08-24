@@ -6,7 +6,9 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "lint": "eslint src"
+    "lint": "eslint src",    
+    "test": "jest",
+    "test:coverage": "npm run test -- --coverage"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-plugin-functional": "^3.6.0",
+    "jest": "^27.0.6",
     "snowpack": "^3.8.6"
   },
   "dependencies": {

@@ -15,4 +15,14 @@ module.exports = {
     sourceType: "module",
   },
   rules: {},
+  overrides: [
+    {
+      files: [
+        '**/src/*.spec.js',
+      ],
+      env: {
+        jest: true,
+      },
+    },
+  ],
 };
